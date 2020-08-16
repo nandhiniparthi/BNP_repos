@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header"/>
+<body>
+<!-- Login Section -->
+    <!-- <img class="img-responsive" src="/images/banner.png" alt="banner"/>  -->
+    
+    <div class="container">
+        <div class="row ">
+            <div class="main-center ">
+                <div class="bg-danger" th:if="${param.error}">
+                    Invalid user.
+                </div>
+                <div class="bg-danger" th:if="${param.logout}">
+                    Logged out successfully.
+                </div>
+                <form class="form-signin" th:action="@{/index}" method="post">
+                    <h2 class="form-signin-heading"> WELCOME TO ICIN BANK </h2>
+                    <div class="form-group">
+                        <label for="username" class="sr-only">Enter the Username</label>
+                        <input type="text" roleId="username" class="form-control" placeholder="Username" name="username"
+                               id="username"
+                               required="required" autofocus="autofocus"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="sr-only">Enter the Password</label>
+                        <input type="password" roleId="inputPassword" class="form-control" placeholder="Password"
+                               id="password"
+                               name="password" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="remember-password" id="remember-password"/> &nbsp; Remember password
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Already a user? Sign in</button>
+                </form>
+                
+                <hr />
+                
+                <div class="form-group ">
+                    <a type="submit" class="btn btn-info btn-lg btn-block login-button" th:href="@{/signup}">New User Sign up!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div th:replace="common/header :: body-bottom-scripts"/>
+
+</body>
+</html>
